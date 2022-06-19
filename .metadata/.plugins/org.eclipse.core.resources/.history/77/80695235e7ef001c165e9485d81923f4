@@ -1,0 +1,39 @@
+package in.ashokit.service;
+
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import in.ashokit.binding.Loginform;
+import in.ashokit.binding.Regform;
+import in.ashokit.entities.UserDtlsEntity;
+import in.ashokit.repository.UserRepository;
+
+@Service
+public class UserManageServiceImpl implements UserManageService {
+	
+	@Autowired
+	private UserRepository userrepo;
+
+	@Override
+	public String loginform(Loginform login) {
+		UserDtlsEntity entity = userrepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
+
+		if (entity != null) {
+			return "Invalid Credentials";
+		}
+
+		return "success";
+
+	}
+
+	@Override
+	public String signup(Regform reg) {
+		UserDtlsEntity entity = new UserDtlsEntity();
+		BeanUtils.copyProperties(reg, entity);
+		UserDtlsEntity savedentity = userrepo.save(entity);
+       return "register";
+	}
+
+}

@@ -1,0 +1,15 @@
+package in.ashokit.service;
+
+
+import in.ashokit.binding.Loginform;
+import in.ashokit.binding.Regform;
+
+
+public interface UserManageService {
+	
+	public String loginform(Loginform login);
+	
+	public String signup(Regform reg);
+
+	
+}

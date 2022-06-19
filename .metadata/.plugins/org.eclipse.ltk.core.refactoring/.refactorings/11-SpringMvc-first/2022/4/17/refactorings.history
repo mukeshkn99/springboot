@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;11-SpringMvc-first/src/main/webapp/views/index&apos; to &apos;index.jsp&apos;" description="Rename resource &apos;index&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/views/index" name="index.jsp" stamp="1650183466243" updateReferences="true"/>
+</session>

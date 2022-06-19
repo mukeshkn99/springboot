@@ -1,0 +1,9 @@
+1649837457973	Delete element
+1649861147824	Rename package 'com.springboot.models'
+1649861252154	Rename package 'com.springboot.repository'
+1649862113300	Extract interface 'saverepo'
+1649863555627	Delete element
+1649864422338	Extract method 'saveuserinfo'
+1649867685836	Extract method 'saveuserinfo'
+1649868194752	Extract method 'findalldetails'
+1649868553125	Extract method 'retrieveid'

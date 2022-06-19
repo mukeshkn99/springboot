@@ -1,0 +1,12 @@
+<Html>
+<head>
+<title>welcome</title>
+</head>
+<body>
+<h1>Book details</h1>
+<form action="addbook" method="post" modelAttribute="b">
+<p>${success}</p>
+<br/>
+
+ </body>
+ </html>

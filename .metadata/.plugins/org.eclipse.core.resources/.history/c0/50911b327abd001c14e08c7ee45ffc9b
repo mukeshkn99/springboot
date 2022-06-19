@@ -1,0 +1,27 @@
+package com.springboot.beans;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.springboot.beans.models.student;
+import com.springboot.beans.repository.studentrepository;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context=SpringApplication.run(Application.class, args);
+		studentrepository st=context.getBean(studentrepository.class);
+		System.out.println(st.getClass());
+		
+		
+		student stu=new student();
+		stu.setId(2);
+		stu.setName("kanesh");
+		stu.setPassword(124);
+		
+		st.save(stu);
+	}
+
+}

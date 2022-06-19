@@ -1,0 +1,33 @@
+package in.ashokit.rest;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import in.ashokit.binding.Regform;
+import in.ashokit.service.UserManageService;
+
+@RestController
+public class RegController {
+
+	@Autowired
+	private UserManageService userservice;
+	
+	@GetMapping("/userinfo")
+	public String loginuser(Model model) {
+		Regform reg=new Regform();
+		model.addAttribute("user", reg);
+		return "register";
+	}
+	@PostMapping("/adduser")
+	public String registration(@ModelAttribute("reg") Regform reg,Model model) {
+		String signup = userservice.signup(reg);
+		model.addAttribute("success", "user reg success");
+		return "regiter";
+	}
+}

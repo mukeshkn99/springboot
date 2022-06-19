@@ -1,0 +1,9 @@
+package com.springboot.beans.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.springboot.beans.models.student;
+
+public interface studentrepository extends CrudRepository<student,Integer>{
+
+}

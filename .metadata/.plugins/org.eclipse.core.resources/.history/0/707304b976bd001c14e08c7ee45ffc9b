@@ -1,0 +1,11 @@
+package com.springboot.beans.models;
+
+import javax.persistence.Entity;
+
+@Entity
+public class student {
+	@Id
+private int id;
+private String name;
+private int password;
+}

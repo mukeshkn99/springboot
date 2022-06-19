@@ -1,0 +1,36 @@
+package com.springboot.beans.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.beans.binding.Loginform;
+import com.springboot.beans.binding.Regform;
+import com.springboot.beans.service.UserManageService;
+
+@RestController
+public class LoginController {
+
+	@Autowired
+	private UserManageService userservice;
+	
+	@GetMapping("/register")
+	public String loginuser(Model model) {
+		Loginform reg=new Loginform();
+		model.addAttribute("user",reg);
+		return "register";
+	}
+	@PostMapping("/adduser")
+	public String registration(@ModelAttribute("reg") Loginform login,Model model) {
+		String loginform = userservice.loginform(login);
+		model.addAttribute("success", "user reg success");
+		return "regsuccess";
+	}
+	
+}

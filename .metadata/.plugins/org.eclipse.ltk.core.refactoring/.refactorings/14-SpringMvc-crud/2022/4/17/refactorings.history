@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;14-SpringMvc-crud/src/main/webapp/views/addbook.jsp&apos; to &apos;createbook.jsp&apos;" description="Rename resource &apos;addbook.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/views/addbook.jsp" name="createbook.jsp" stamp="1650363924192" updateReferences="true"/>
+</session>

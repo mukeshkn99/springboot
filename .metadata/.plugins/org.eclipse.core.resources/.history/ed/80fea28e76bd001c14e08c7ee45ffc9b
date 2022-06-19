@@ -1,0 +1,5 @@
+package com.springboot.beans.models;
+
+public class user {
+
+}

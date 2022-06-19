@@ -1,0 +1,35 @@
+package com.springboot.beans.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.springboot.beans.models.book;
+import com.springboot.beans.repository.bookrepository;
+
+
+
+@Controller
+public class bookcontroller {
+	@Autowired
+	private bookrepository repo;
+
+	@GetMapping("/bookinfo")
+	public String loadbook(Model model) {
+		book b=new book();
+		model.addAttribute("book",b);
+		return "createbook";
+	}
+	@PostMapping("/addbook")
+	public String handlesubmit(@ModelAttribute("b")book b,Model model) {
+		book entity = repo.save(book);
+		model.addAttribute("success", "Book stored success");
+		return "createbook";
+	}
+	}

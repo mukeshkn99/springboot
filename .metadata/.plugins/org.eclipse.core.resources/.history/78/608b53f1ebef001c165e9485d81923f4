@@ -1,0 +1,38 @@
+package com.springboot.beans.controller;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.beans.binding.Regform;
+import com.springboot.beans.models.UserDtlsEntity;
+import com.springboot.beans.service.UserManageService;
+
+@RestController
+public class RegController {
+
+	@Autowired
+	private UserManageService userservice;
+	
+	@GetMapping(" ")
+	public String welcome(){
+		return "user";
+	}
+	@GetMapping("/register")
+	public String loginuser(Model model) {
+		UserDtlsEntity user=new UserDtlsEntity();
+		model.addAttribute("user",user);
+		return "register";
+	}
+	@PostMapping("/adduser")
+	public String registration(@ModelAttribute("reg") Regform reg,Model model) {
+		String signup = userservice.signup(reg);
+		model.addAttribute("success", "user reg success");
+		return "register";
+	}
+}
